@@ -17,6 +17,7 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+asset-paths: ["assets"]
 
 clean-targets:         # directories to be removed by `dbt clean`
   - "target"
@@ -29,10 +30,26 @@ clean-targets:         # directories to be removed by `dbt clean`
 # In this example config, we tell dbt to build all models in the example/
 # directory as views. These settings can be overridden in the individual model
 # files using the `{{ config(...) }}` macro.
+on-run-start:
+  - "CREATE TABLE IF NOT EXISTS 
+    {{ target.schema }}.audit_log(
+    model_name string,
+    run_timestamp timestamp
+    )"
+
+
 models:
   airbnb:
+    +grants:
+      select: ["transform", "reporter"]
+    +post-hook:
+      - "INSERT INTO {{ target.schema }}.audit_log(model_name, run_timestamp) VALUES ('{{ this }}', current_timestamp)"
     +materialized: view
     dim:
       +materialized: table
     src:
       +materialized: ephemeral
+
+data_tests:
+  +store_failures: true
+  +schema: _test_audits

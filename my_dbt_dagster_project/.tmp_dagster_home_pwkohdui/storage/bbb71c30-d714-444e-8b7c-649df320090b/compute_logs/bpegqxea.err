@@ -1,0 +1,16 @@
+[32m2026-10-20 13:00:08 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - LOGS_CAPTURED - Started capturing logs in process (pid: 9321).
+[32m2026-10-20 13:00:08 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - airbnb_dbt_assets - STEP_START - Started execution of step "airbnb_dbt_assets".
+[32m2026-10-20 13:00:08 +0300[0m - dagster - [34mINFO[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - airbnb_dbt_assets - A dbt subsetted execution is being performed. Overriding default dbt selection arguments `['--select', 'fqn:*']` with arguments: `['airbnb.fct.fct_reviews']`.
+[32m2026-10-20 13:00:09 +0300[0m - dagster - [34mINFO[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - airbnb_dbt_assets - Copying `/Users/shpo/Documents/code/dbt-sf/dbt-course/airbnb/target/partial_parse.msgpack` to `/Users/shpo/Documents/code/dbt-sf/dbt-course/airbnb/target/airbnb_dbt_assets-bbb71c3-4817f9a/partial_parse.msgpack` to take advantage of partial parsing.
+[32m2026-10-20 13:00:09 +0300[0m - dagster - [34mINFO[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - airbnb_dbt_assets - Running dbt command: `dbt build --select airbnb.fct.fct_reviews`.
+[32m2026-10-20 13:00:19 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - airbnb_dbt_assets - STEP_OUTPUT - Yielded output "fct_reviews" of type "Nothing". (Type check passed).
+[32m2026-10-20 13:00:19 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - airbnb_dbt_assets - ASSET_MATERIALIZATION - Materialized value fct_reviews.
+[32m2026-10-20 13:00:23 +0300[0m - dagster - [34mWARNING[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - airbnb_dbt_assets - Logging an `AssetObservation` instead of an `AssetCheckResult` for dbt test `consistant_created_at`.
+
+`consistant_created_at` is a singular test with multiple dependencies. Configure an asset key in the test's dbt meta to load it as an asset check.
+
+This test was not included in Dagster's asset check selection, and was likely executed due to dbt indirect selection.
+[32m2026-10-20 13:00:23 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - airbnb_dbt_assets - ASSET_OBSERVATION - DagsterEventType.ASSET_OBSERVATION for step airbnb_dbt_assets
+[32m2026-10-20 13:00:23 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - airbnb_dbt_assets - ASSET_OBSERVATION - DagsterEventType.ASSET_OBSERVATION for step airbnb_dbt_assets
+[32m2026-10-20 13:00:23 +0300[0m - dagster - [34mINFO[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - airbnb_dbt_assets - Finished dbt command: `dbt build --select airbnb.fct.fct_reviews`.
+[32m2026-10-20 13:00:23 +0300[0m - dagster - [34mDEBUG[0m - materialize_fct_reviews - bbb71c30-d714-444e-8b7c-649df320090b - 9321 - airbnb_dbt_assets - STEP_SUCCESS - Finished execution of step "airbnb_dbt_assets" in 15.45s.

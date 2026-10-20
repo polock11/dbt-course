@@ -1,0 +1,28 @@
+Running with dbt=1.11.7
+Registered adapter: snowflake=1.11.3
+Unable to do partial parsing because config vars, config profile, or config target have changed
+Unable to do partial parsing because profile has changed
+[[33mWARNING[0m]: Test 'test.airbnb.relationships_dim_listings_cleansed_host_id__host_id__ref_dim_hosts_cleansed_.b53b94b2ad' (models/schema.yml) depends on a node named 'dim_hosts_cleansed' in package '' which was not found
+Found 8 models, 1 analysis, 12 data tests, 1 seed, 1 operation, 2 snapshots, 3 sources, 642 macros, 1 unit test
+
+Concurrency: 1 threads (target='prod')
+
+1 of 1 START hook: airbnb.on-run-start.0 ....................................... [RUN]
+1 of 1 OK hook: airbnb.on-run-start.0 .......................................... [[32mOK[0m in 0.56s]
+
+1 of 5 START sql incremental model PROD.fct_reviews ............................ [RUN]
+1 of 5 OK created sql incremental model PROD.fct_reviews ....................... [[32mSUCCESS 1[0m in 4.24s]
+2 of 5 START seed file PROD.seed_full_moon_dates ............................... [RUN]
+2 of 5 OK loaded seed file PROD.seed_full_moon_dates ........................... [[32mINSERT 272[0m in 2.10s]
+3 of 5 START test consistant_created_at ........................................ [RUN]
+3 of 5 PASS consistant_created_at .............................................. [[32mPASS[0m in 1.91s]
+4 of 5 START unit_test mart_full_moon_review::unittest_fullmoon_matcher ........ [RUN]
+4 of 5 PASS mart_full_moon_review::unittest_fullmoon_matcher ................... [[32mPASS[0m in 2.18s]
+5 of 5 START sql table model PROD.mart_full_moon_review ........................ [RUN]
+5 of 5 OK created sql table model PROD.mart_full_moon_review ................... [[32mSUCCESS 409699[0m in 2.91s]
+
+Finished running 1 incremental model, 1 project hook, 1 seed, 1 table model, 1 test, 1 unit test in 0 hours 0 minutes and 16.05 seconds (16.05s).
+
+[32mCompleted successfully[0m
+
+Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6
